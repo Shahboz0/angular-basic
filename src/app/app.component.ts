@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-basic';
   inputValueStr = ''
+  changeBackground = false
 
   image: string = 'https://wallbox.ru/resize/1024x1024/wallpapers/main/201151/koshki-f60c1e13bc32.jpg'
 
