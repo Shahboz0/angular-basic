@@ -7,6 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-basic';
-  show = true
-  arr: Array<number> = [1, 2, 3, 4, 10, 11, 23]
+  num = 4.5
 }
