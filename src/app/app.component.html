@@ -2,5 +2,5 @@
 <app-post></app-post>
 <!--<button (click)="changeTitleAndImg()">Change title and img</button>-->
 <!--<img [src]="image" alt="" class="cat">-->
-<input type="text" (change)="inputValue($event)" id="">
+<input type="text" [(ngModel)]="inputValueStr">
 <p>{{inputValueStr}}</p>
