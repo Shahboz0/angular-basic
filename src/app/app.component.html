@@ -1,10 +1,2 @@
-<h1>{{title}}</h1>
-<app-post></app-post>
-<!--<button (click)="changeTitleAndImg()">Change title and img</button>-->
-<input type="text" [(ngModel)]="inputValueStr">
-<button (click)="changeBackground = !changeBackground">Change paragraph background</button>
-<p [ngStyle]="{
-  background: changeBackground ? 'red' : 'gray',
-  border: '1px solid black',
-  height: '30px'
-}">{{inputValueStr}}</p>
+<button (click)="show = !show">Hide</button>
+<app-post *ngIf="show"></app-post>
