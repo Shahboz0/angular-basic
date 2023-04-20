@@ -13,7 +13,6 @@ import {
   OnInit,
   Output,
   SimpleChanges,
-  ViewEncapsulation
 } from '@angular/core';
 import {Post} from "../app.component";
 
@@ -22,20 +21,14 @@ import {Post} from "../app.component";
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
 })
 export class PostComponent implements OnInit, OnChanges, DoCheck, AfterViewInit, AfterContentInit, AfterContentChecked ,AfterViewChecked ,OnDestroy{
 
   @Input() post: any;
   @Output() deleteEvent: EventEmitter<Post> = new EventEmitter<Post>()
 
-  firstTitle = 'First title'
-
   constructor() {
     console.log('constructor')
-    setTimeout(()=> {
-      this.firstTitle = 'Changed first title'
-    }, 2000)
   }
 
   deletePost(post: Post): void {
