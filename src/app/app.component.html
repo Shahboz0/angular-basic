@@ -1,2 +1,5 @@
 <button (click)="show = !show">Hide</button>
-<app-post *ngIf="show"></app-post>
+<app-post *ngFor="let item of arr"></app-post>
+<ul>
+  <li *ngFor="let item of arr">{{item}}</li>
+</ul>
