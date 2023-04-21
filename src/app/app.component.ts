@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SharedService} from "./shared.service";
 import {Subscription} from "rxjs";
+import {CommunicationService} from "./communication.service";
 
 export interface Post {
   id: number;
@@ -22,11 +23,16 @@ export class AppComponent implements OnInit, OnDestroy{
   subscription = new Subscription();
 
 
-  constructor(private sharedService: SharedService) {
+  constructor(private sharedService: SharedService, private servise: CommunicationService) {
   }
 
 
   ngOnInit(): void {
+    this.subscription.add(this.servise.getPosts().subscribe((value) => {
+      console.log(value)
+    },
+      () => {},
+      () => {}));
     this.subscription.add(this.sharedService.count$.subscribe((count) => {
       this.count = count;
     }))
