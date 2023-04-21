@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {CommunicationService} from "./communication.service";
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SharedService} from "./shared.service";
+import {Subscription} from "rxjs";
 
 export interface Post {
   id: number;
@@ -14,10 +14,12 @@ export interface Post {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy{
   title = 'angular-basic';
   post: Post = {id: 1, title: 'First card', body:'description'}
   count: number = 0;
+  show = true;
+  subscription = new Subscription();
 
 
   constructor(private sharedService: SharedService) {
@@ -25,8 +27,12 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.sharedService.count$.subscribe((count) => {
+    this.subscription.add(this.sharedService.count$.subscribe((count) => {
       this.count = count;
-    })
+    }))
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) this.subscription.unsubscribe();
   }
 }

@@ -1,5 +1,8 @@
 <h1>{{title | titlecase}}</h1>
 <h1>Parent component</h1>
 <h2>{{count}}</h2>
-<app-post [post]="post"></app-post>
+<button (click)="
+show = !show">delete post
+</button>
+<app-post *ngIf="show" [post]="post"></app-post>
 
