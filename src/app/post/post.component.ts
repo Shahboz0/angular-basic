@@ -25,14 +25,22 @@ import {Post} from "../app.component";
 export class PostComponent implements OnInit, OnChanges, DoCheck, AfterViewInit, AfterContentInit, AfterContentChecked ,AfterViewChecked ,OnDestroy{
 
   @Input() post: any;
-  @Output() deleteEvent: EventEmitter<Post> = new EventEmitter<Post>()
+  @Output() counter: EventEmitter<number> = new EventEmitter<number>()
+
+  count = 0;
 
   constructor() {
     console.log('constructor')
   }
 
-  deletePost(post: Post): void {
-      this.deleteEvent.emit(post)
+  increaseCount(): void {
+    this.count++;
+    this.counter.emit(this.count)
+  }
+
+  decreaseCount(): void {
+    this.count--;
+    this.counter.emit(this.count)
   }
 
   ngOnChanges(changes: SimpleChanges): void {

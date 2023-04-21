@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient } from "@angular/common/http";
 import {CommunicationService} from "./communication.service";
 
 export interface Post {
   id: number;
-  userId: number;
+  userId?: number;
   title: string;
   body: string
 }
@@ -14,20 +13,12 @@ export interface Post {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'angular-basic';
-  posts: Post[] = []
+  post: Post = {id: 1, title: 'First card', body:'description'}
+  count: number = 0;
 
-  constructor(private service: CommunicationService) {
-  }
-
-  deletePost(event: Post): void {
-    this.posts = this.posts.filter((post) => post.id !== event.id)
-  }
-
-  ngOnInit(): void {
-    this.service.getPosts().subscribe((value) => {
-      this.posts = value;
-    })
+  getCount(event: number): void {
+    this.count = event;
   }
 }
