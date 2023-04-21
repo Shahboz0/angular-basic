@@ -15,6 +15,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import {Post} from "../app.component";
+import {SharedService} from "../shared.service";
 
 @Component({
   selector: 'app-post',
@@ -22,53 +23,23 @@ import {Post} from "../app.component";
   styleUrls: ['./post.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PostComponent implements OnInit, OnChanges, DoCheck, AfterViewInit, AfterContentInit, AfterContentChecked ,AfterViewChecked ,OnDestroy{
+export class PostComponent implements OnDestroy{
 
   @Input() post: any;
-  @Output() counter: EventEmitter<number> = new EventEmitter<number>()
 
   count = 0;
 
-  constructor() {
-    console.log('constructor')
+  constructor(private sharedService: SharedService) {
   }
 
   increaseCount(): void {
     this.count++;
-    this.counter.emit(this.count)
+    this.sharedService.changeCount(this.count);
   }
 
   decreaseCount(): void {
     this.count--;
-    this.counter.emit(this.count)
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges', changes)
-  }
-
-  ngOnInit(): void {
-    console.log('ngOnInit')
-  }
-
-  ngDoCheck(): void {
-    console.log('ngDoCheck')
-  }
-
-  ngAfterContentInit(): void {
-    console.log('ngAfterContentInit')
-  }
-
-  ngAfterContentChecked(): void {
-    console.log('ngAfterContentChecked')
-  }
-
-  ngAfterViewInit(): void {
-    console.log('ngAfterViewInit')
-  }
-
-  ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked')
+    this.sharedService.changeCount(this.count);
   }
 
   ngOnDestroy(): void {
