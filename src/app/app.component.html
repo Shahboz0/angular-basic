@@ -1,4 +1,7 @@
-<h1>{{title | titlecase}}</h1>
-<app-post-form></app-post-form>
-<app-post *ngFor="let post of posts" [post]="post"></app-post>
+<header>
+  <div class="bar" [routerLink]="['/']">Home</div>
+  <div class="bar" [routerLink]="['/about']">About</div>
+  <div class="bar" [routerLink]="['/postsgit ']">Posts</div>
+</header>
+<router-outlet></router-outlet>
 

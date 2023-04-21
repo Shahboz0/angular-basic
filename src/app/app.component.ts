@@ -1,5 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {SharedService} from "./shared.service";
+import {Component} from '@angular/core';
 
 export interface Post {
   id?: number;
@@ -13,21 +12,6 @@ export interface Post {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent{
   title = 'angular-basic';
-  posts: Post[] = [
-    {id: 1, title: 'First card', body:'description'}
-  ]
-
-constructor(private shared: SharedService) {
-}
-
-  ngOnInit(): void {
-    this.shared.post$.subscribe((post) => {
-      this.posts.unshift(post)
-    })
-  }
-
-  ngOnDestroy(): void {
-  }
 }
