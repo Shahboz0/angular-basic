@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.formChild {
+  margin: 20px 0;
+}
+button {
+  background: black;
+  color: white;
+}
+button:disabled {
+  background: lightgray;
+  opacity: 0.9;
+}
+input {
+  &.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+  &.ng-valid.ng-touched {
+    border: 1px solid green;
+  }
+}

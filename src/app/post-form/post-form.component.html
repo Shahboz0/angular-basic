@@ -1,0 +1,10 @@
+<div class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <h1>Angular form</h1>
+  <div class="formChild">
+    <input type="text" placeholder="title" formControlName="title">
+  </div>
+  <div class="formChild">
+    <input type="text" placeholder="body" formControlName="body">
+  </div>
+  <button type="submit" (click)="submit()" [disabled]="form.invalid">create form</button>
+</div>
