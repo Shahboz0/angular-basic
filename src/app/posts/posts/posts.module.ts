@@ -17,7 +17,7 @@ import {RouterModule} from "@angular/router";
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path: 'posts', component: PostsComponent},
+      {path: '', component: PostsComponent},
     ])
   ],
   exports: [RouterModule]

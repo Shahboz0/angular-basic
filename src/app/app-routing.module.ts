@@ -7,6 +7,7 @@ import {PostsComponent} from "./posts/posts/posts.component";
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
+  {path: 'posts', loadChildren: () => import('./posts/posts/posts.module').then((item) => item.PostsModule)},
   {path: '', pathMatch: "full", redirectTo: 'home'}
 ];
 
