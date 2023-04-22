@@ -11,6 +11,7 @@ import { TableComponent } from './table/table/table.component';
 import { ChartComponent } from './chart/chart/chart.component';
 import {MatTableModule} from "@angular/material/table";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgxEchartsModule} from "ngx-echarts";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppRoutingModule,
     PostsModule,
     MatTableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
