@@ -13,4 +13,8 @@ export class CommunicationService {
   getPosts(): Observable<Post[]>{
     return this.httpClient.get<Post[]>('https://jsonplaceholder.typicode.com/posts').pipe(repeatWhen(() => interval(1000)))
   }
+
+  postQuery(): Observable<Post[]>{
+    return this.httpClient.post<Post[]>('', {})
+  }
 }
