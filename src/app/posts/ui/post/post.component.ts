@@ -4,7 +4,7 @@ import {
   Input,
   OnDestroy,
 } from '@angular/core';
-import {SharedService} from "../shared.service";
+import {SharedService} from "../../../shared.service";
 
 @Component({
   selector: 'app-post',

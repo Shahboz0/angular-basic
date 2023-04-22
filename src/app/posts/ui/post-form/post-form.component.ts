@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {SharedService} from "../shared.service";
+import {SharedService} from "../../../shared.service";
 
 @Component({
   selector: 'app-post-form',
